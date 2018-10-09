@@ -1,7 +1,7 @@
 function testWhile() {
-    let texte = prompt('Insérez une phrase contenant un "p" :');
+    do 
+        texte = prompt('Insérez une phrase contenant un "p" :');
+    while (texte.indexOf('p') == -1)
 
-    if (texte.indexOf('p') = -1) {
-        alert('Mauvaise entrée.')
-    }
+    alert(texte);
 }
