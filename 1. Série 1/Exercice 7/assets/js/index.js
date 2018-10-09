@@ -1,8 +1,8 @@
 function blbl() {
-    const number1 = document.getElementById("premier_nombre").value;
-    const number2 = document.getElementById("deuxieme_nombre").value;
+    const pointure = document.getElementById("pointure").value;
+    const annee = document.getElementById("annee").value;
 
-    const response = number1 % number2;
+    const resultat = (pointure*2+5)*50-annee+1766;
 
-    alert('La réponse est : ' + response);
+    alert(resultat)
 }
