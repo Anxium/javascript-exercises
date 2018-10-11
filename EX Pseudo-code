@@ -1,0 +1,240 @@
+///// Ex. 3 des conditions
+DEBUT
+
+    q1 = "Quel est le prix de base de votre billet?"
+    q2 = "Quel est l'âge du passager?"
+
+    ECRIRE q1
+    LIRE prix
+
+    ECRIRE q2
+    LIRE age
+
+    SI age < 2 ALORS
+        ECRIRE "Les enfants de moins de 2 ans ne payent pas."
+    SINON SI age < 10 ALORS
+        prixEnfant = prix/2
+        ECRIRE "Le prix du billet enfant est de" , prixEnfant , "€"
+    SINON SI age < 27 OU age > 70 ALORS
+        prixReduc = prix*0.9
+        ECRIRE "Le prix du billet est de" , prixReduc , "€"
+    SINON
+        ECRIRE "Le prix du billet est de" , prix , "€"
+    FINSI
+
+FIN
+
+///// Ex. 1 des boucles
+DEBUT
+
+    Q1 = "Choisissez un nombre"
+
+    ECRIRE Q1
+    LIRE nombre
+
+    TANTQUE nombre >= 0 FAIRE
+        ECRIRE nombre
+        nombre = nombre - 1
+    FINTANTQUE
+    
+FIN
+
+///// Ex. 2 des boucles
+DEBUT
+
+    Q1 = "Tentez de trouver le juste prix en entrant un nombre ci-dessous..."
+    numberResearch = 7
+    nombre = 0
+    
+    TANTQUE nombre != numberResearch FAIRE
+        ECRIRE Q1
+        LIRE nombre
+        
+        SI nombre < numberResearch ALORS
+            ECRIRE "Le nombre choisi est trop petit."
+        SINON SI nombre > numberResearch ALORS
+            ECRIRE "Le nombre choisi est trop grand."
+        FINSI
+    FINTANTQUE
+
+    ECRIRE "Bravo, vous avez trouvé le juste prix!"
+
+FIN
+
+/// Ex. 1 des tableaux
+DEBUT
+
+    eleve = ["Justine", "Sophie", "Maxime", "Ruben", "Axel"]
+
+    POUR nombre = 1 JUSQU'A 5 FAIRE
+        ECRIRE eleve[nombre], "est un apprenant de la promo Turring 2"
+    FINPOUR
+FIN
+
+/// Ex. 2 des tableaux
+DEBUT
+
+    eleve = ["Justine", "Sophie", "Maxime", "Ruben", "Axel"]
+    competence = ["html", "css", "javascript", "php", "Java"]
+
+    POUR nombre = 1 JUSQU'A 5 FAIRE
+        ECRIRE eleve[nombre], "est un apprenant de la promo Turring 2 avec une compétence en", competence[nombre]
+    FINPOUR
+
+FIN
+
+/// Ex. 3 des tableaux
+DEBUT
+
+    nombres = [[18,55], [29,13], [-2,15], [66,44]]
+
+    POUR i = 1 JUSQU'A 4 FAIRE
+        SI nombres[i][1] > nombres[i][2] ALORS
+            ECRIRE nombres[i][1]
+        SINON
+            ECRIRE nombres[i][2]
+        FINSI
+    FINPOUR
+        
+FIN
+
+///EX. 4 des tableaux
+DEBUT
+
+    apprenants = [["David", "Justine", "Valentin","Axel", "Redouane"], ["Julie", "Stéphane", "Mostapha", "Claudiu", "Son"]]
+
+    POUR i = 1 JUSQU'A 2 FAIRE
+        POUR y = 1 JUSQU'A 5 FAIRE
+            SI i = 1 ALORS
+                ECRIRE apprenants[i][y] , "est chez les Turrings"
+            SINON
+                ECRIRE apprenants[i][y] , "est chez les lovelace"
+            FINSI
+        FINPOUR
+    FINPOUR
+
+FIN
+
+
+/// Ex. 1 des fonctions
+- Module principal
+DEBUT
+
+    ECRIRE HELLO("Axel")
+
+FIN
+
+- Module Auxiliaire
+DEBUT
+
+    ENTRER prenom
+        texte = "Bonjour et bienvenue" + prenom
+    RETOURNER texte
+
+FIN
+
+/// Ex. 2 des fonctions
+- Module principal
+DEBUT
+
+    ECRIRE TRIER(7,3)
+
+FIN
+
+- Module Auxiliaire
+ENTRER a, b
+        SI a > b ALORS
+            nombre = "0"
+        SINON 
+            nombre = "1"
+        FINSI
+RETOURNER nombre
+
+/// Ex. 2 des fonctions
+- Module principal
+DEBUT
+
+    competence = ["HTML/CSS", "JavaScript", "PHP"]
+
+    ECRIRE EX3("Axel","Turing 2", competence)
+
+FIN
+
+- Module Auxiliaire
+ENTRER prenom, classe, competence
+
+    texteComp = ""
+
+    POUR i=1 JUSQU'A COMPTER(competence) FAIRE
+        SI i = COMPTER(competence) ALORS
+            texteComp = texteComp + competence[i]
+        SINON
+            texteComp = texteComp + competence[i] + ", "
+        FINSI
+    FINPOUR
+
+    texte = prenom + " est dans la classe " + classe + " et possède des compétences en " + texteComp
+
+RETOURNER texte
+
+/// Ex. 3 des fonctions
+DEBUT
+
+    Q1 = "Tentez de trouver le juste prix en entrant un nombre ci-dessous..."
+    numberResearch = ALEATOIRE(1, 100)
+    nombreEssais = 1
+
+    TANTQUE nombreEssais<=10 FAIRE
+
+        ECRIRE Q1
+        LIRE rep
+
+        nombreEssais = VERIF(numberResearch, rep, nombreEssais)
+
+    FINTANTQUE
+
+FIN
+
+ENTRER numberResearch, rep, nombreEssais
+
+    SI rep=numberResearch ALORS
+        ECRIRE "Bravo, vous avez trouvé le juste prix!"
+        nombreEssais=12
+    SINON 
+        SI rep>numberResearch ALORS
+            ECRIRE "C'est plus petit."
+        SINON
+            ECRIRE "C'est plus grand."
+        FINSI
+        nombreEssais = nombreEssais+1
+    FINSI
+
+    SI nombreEssais = 11 ALORS
+        ECRIRE "Vous avez perdu"
+    FINSI
+
+RETOURNER nombreEssais
+
+///Ex. 4 des fonctions
+DEBUT 
+
+    tri = [454, 4, 59, 68, 1, 0, -1 , 56 , 7 , 9]
+    ECRIRE tri
+    n = 1
+
+    TANTQUE n < COMPTER(tri) FAIRE
+        POUR i=1 JUSQU'A COMPTER(tri) INCREMENT 1 FAIRE
+            SI i+1 <= COMPTER(tri) ALORS
+                SI tri[i]>tri[i+1] ALORS
+                    nbr = tri[i]
+                    tri[i] = tri[i+1]
+                    tri[i+1] = nbr
+                FINSI
+            FINSI
+        FINPOUR
+        n = n+1
+    FINTANTQUE
+
+    ECRIRE TRI
+
+FIN
