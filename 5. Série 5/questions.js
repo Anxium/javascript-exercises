@@ -92,7 +92,7 @@ var hypothenuse = function (ab, ac) {
 }
 var calculIMC = function (poids, taille) {
     let imc = poids/Math.pow(taille, 2);
-    let i = Number(imc.toFixed(2));
+    let i = imc.toFixed(2);
 
-    return i
+    return Number(i)
 }
