@@ -1,21 +1,54 @@
 var selectElementsStartingWithA = function(array) {
-    return 'Write your method here';
+    for (let i=0;i<array.length;i++) {
+        if (array[i].charAt(0) != 'a') {
+            array.splice(i,1);
+        }
+    }
+
+    return array
 }
 
 var selectElementsStartingWithVowel = function(array) {
-    return 'Write your method here';
+    const vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
+    let flag;
+
+    for (let i=array.length-1;i>-1;i--) {
+        flag = 0;
+        for (let j=0;j<vowels.length;j++) {
+            if (array[i].charAt(0) == vowels[j]) {
+                flag = 1;
+            }
+        }
+        if (flag != 1) {
+            array.splice(i,1);
+        }
+    }
+    return array;
 }
 
 var removeNullElements = function(array) {
-    return 'Write your method here';
+    for (let i=array.length-1;i>-1;i--) {
+        if (array[i] == null) {
+            array.splice(i,1);
+        }
+    }
+    return array
 }
 
 var removeNullAndFalseElements = function(array) {
-    return 'Write your method here';
+    for (let i=array.length-1;i>-1;i--) {
+        if (array[i] === null || array[i] === false) {
+            array.splice(i,1);
+        }
+    }
+    return array
 }
 
 var reverseWordsInArray = function(array) {
-    return 'Write your method here';
+    for (let i=array.length-1;i>-1;i--) {
+        array[i] = array[i].split('').reverse().join('');
+    }
+    return array
 }
 
 var everyPossiblePair = function(array) {
@@ -23,63 +56,114 @@ var everyPossiblePair = function(array) {
 }
 
 var allElementsExceptFirstThree = function(array) {
-    return 'Write your method here';
+    array.splice(0,3);
+    return array
 }
 
 var addElementToBeginning = function(array, element) {
-    return 'Write your method here';
+    array.unshift(element);
+    return array;
 }
 
 var sortByLastLetter = function(array) {
-    return 'Write your method here';
+    for (let i=array.length-1;i>-1;i--) {
+        array[i] = array[i].split('').reverse();
+    }
+    array.sort();
+    for (let i=array.length-1;i>-1;i--) {
+        array[i] = array[i].reverse().join('');
+    }
+    return array
 }
 
 var getFirstHalf = function(string) {
-    return 'Write your method here';
+    let taille = string.length;
+    if (taille%2 == 0) {
+        let blbl = string.slice(0, taille/2)
+        return blbl
+    } else {
+        let blbl = string.slice(0, taille/2+1)
+        return blbl
+    }
 }
 
 var makeNegative = function(number) {
-    return 'Write your method here';
+    if(number>0) {
+        number = -number;
+        return number;
+    } else {
+        return number;
+    }
 }
 
 var numberOfPalindromes = function(array) {
-    return 'Write your method here';
+    let count = 0;
+    for (i=0;i<array.length;i++) {
+        let pal = array[i].split('').reverse().join('')
+        if (array[i]==pal) {
+            count++
+        }
+    }
+
+    return count
 }
 
 var shortestWord = function(array) {
-    return 'Write your method here';
+    let shortest;
+    for (let i=0;i<array.length;i++) {
+        if (i+1 <= array.length) {
+            if (array[i].length < array[i+1].length) {
+                return shortest = array[i];
+            }
+        }
+    }
 }
 
 var longestWord = function(array) {
-    return 'Write your method here';
+    let longest;
+    for (let i=0;i<array.length;i++) {
+        if (i+1 <= array.length) {
+            if (array[i].length > array[i+1].length) {
+                return longest = array[i];
+            }
+        }
+    }
 }
 
 var sumNumbers = function(array) {
-    return 'Write your method here';
+    return array.reduce((a, b)=> a + b,0);
 }
 
 var repeatElements = function(array) {
-    return 'Write your method here';
+    array2 = array.slice();
+    array = array.concat(array2);
+    return array
 }
 
 var stringToNumber = function(string) {
-    return 'Write your method here';
+    return Number(string)
 }
 
 var calculateAverage = function(array) {
-    return 'Write your method here';
+    let total = array.reduce((a, b)=> a + b,0);
+    return total/array.length
 }
 
 var getElementsUntilGreaterThanFive = function(array) {
-    return 'Write your method here';
+    array = array.slice(0,6);
+    return array
 }
 
 var convertArrayToObject = function(array) {
-    return 'Write your method here';
+    let object = {};
+    for (let i=0;i<array.length;i+=2) {
+        object[array[i]]=array[i+1];
+    }
+    return object
 }
 
 var getAllLetters = function(array) {
-    return 'Write your method here';
+
 }
 
 var swapKeysAndValues = function(object) {
@@ -131,5 +215,8 @@ var convertToCelsius = function(number) {
 }
 
 var letterPosition = function(array) {
-    return 'Write your method here';
+    let alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+    for(let i=0;i<array.length;i++) {
+
+    }
 }
