@@ -163,31 +163,57 @@ var convertArrayToObject = function(array) {
 }
 
 var getAllLetters = function(array) {
-
+    return 'Write your method here';
 }
 
 var swapKeysAndValues = function(object) {
-    return 'Write your method here';
+    let result = {};
+    for(let key in object){
+        result[object[key]] = key;
+    }
+
+    return result
 }
 
 var sumKeysAndValues = function(object) {
-    return 'Write your method here';
+    let result = 0;
+    for(let key in object){
+        result += Number(object[key]) + Number(key);
+    }
+    return result
 }
 
 var removeCapitals = function(string) {
-    return 'Write your method here';
+    string = string.replace(/[A-Z]/g, '');
+    return string
 }
 
 var roundUp = function(number) {
-    return 'Write your method here';
+    return Math.ceil(number);
 }
 
 var formatDateNicely = function(date) {
-    return 'Write your method here';
+    let verif = (element) => {
+        if (element.toString().length == 1) {
+            return `0${element}`
+        } else {
+            return `${element}`
+        }
+    }
+    
+    let day = verif(date.getDay()+1);
+    let month = verif(date.getMonth()+1);
+    let year = date.getFullYear();
+
+    return `${day}/${month}/${year}`
 }
 
 var getDomainName = function(string) {
-    return 'Write your method here';
+    let a = string.lastIndexOf('@');
+    let b = string.lastIndexOf('.');
+
+    let i = string.substring(a+1, b)
+    return i
 }
 
 var titleize = function(string) {
@@ -195,28 +221,57 @@ var titleize = function(string) {
 }
 
 var checkForSpecialCharacters = function(string) {
-    return 'Write your method here';
+    let specialCharachter = /[@!#]/;
+
+    if (string.match(specialCharachter)) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 var squareRoot = function(number) {
-    return 'Write your method here';
+    return Math.sqrt(number);
 }
 
 var factorial = function(number) {
-    return 'Write your method here';
+    let numb = 1;
+    for (let i=1;i<=number;i++) {
+        numb *= i;
+    }
+    return numb
 }
 
 var findAnagrams = function(string) {
-    return 'Write your method here';
+    if (string.length < 2) {
+        return [string];
+    } else {
+        let allAnswers = [];
+        for (let i=0;i<string.length;i++) {
+            let letter = string[i];
+            let shorterWord = string.substr(0, i) + string.substr(i+1, string.length-1);
+            let shortwordArray = findAnagrams(shorterWord);
+            for (let j=0;j<shortwordArray.length;j++) {
+                allAnswers.push(letter + shortwordArray[j]);
+            }
+        }
+        return allAnswers;
+    }
 }
 
 var convertToCelsius = function(number) {
-    return 'Write your method here';
+    return Math.ceil((Number(number)-32)/(9/5))
 }
 
 var letterPosition = function(array) {
     let alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
     for(let i=0;i<array.length;i++) {
-
+        array[i] = array[i].toUpperCase();
+        for (let j=0;j<alphabet.length;j++) {
+            if (array[i] == alphabet[j]) {
+                array[i] = j+1
+            }
+        }
     }
+    return array
 }
