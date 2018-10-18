@@ -52,7 +52,18 @@ var reverseWordsInArray = function(array) {
 }
 
 var everyPossiblePair = function(array) {
-    return 'Write your method here';
+    let retour = []
+    function pair(tableau) {
+        tableau.sort();
+        let tb = [],
+        l = tableau.length;
+        for(let i=0; i<l; i++)
+            for(let j=i+1; j<l; j++)
+                tb.push([tableau[i], tableau[j]]);
+        return tb;
+    }
+ 
+    return pair(array)    
 }
 
 var allElementsExceptFirstThree = function(array) {
@@ -163,7 +174,13 @@ var convertArrayToObject = function(array) {
 }
 
 var getAllLetters = function(array) {
-    return 'Write your method here';
+    for (let i=0;i<array.length;i++) {
+        for (let j=1;j<array[i].length;j++){
+            array[i][j].split();
+        }
+    }
+
+    return array
 }
 
 var swapKeysAndValues = function(object) {
@@ -217,7 +234,16 @@ var getDomainName = function(string) {
 }
 
 var titleize = function(string) {
-    return 'Write your method here';
+    let table = string.split(' ');
+    for (let i=0;i<table.length;i++) {
+        if (table[i].length>3) {
+            table[i].charAt(0).toUpperCase()
+        }
+    }
+
+    table.join('')
+
+    return table
 }
 
 var checkForSpecialCharacters = function(string) {
