@@ -5,3 +5,11 @@ body {
     align-items: center;
     flex-flow: wrap column;
 }
+
+button {
+    padding: 20px 50px;
+}
+
+.cookie {
+    margin: 30px;
+}
