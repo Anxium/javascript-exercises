@@ -75,7 +75,7 @@ let interval;
 let mouvement = 0;
 
 let startTimer = () => {
-    if (mouvement == 1) {
+    if (mouvement < 1) {
         interval = setInterval(function(){
             timer.innerHTML = `Temps: ${minute} minute(s) ${second} secondes`;
             second++;
@@ -148,7 +148,7 @@ let bon = () => {
 
 let termine = () => {
     if (paire == cardsArray.length) {
-        alert(`Vous avez terminé la partie en ${minute} minute(s) et ${second} secondes, avec un total de ${mouvement}coups ! \n\nCliquez sur ok pour relancer la partie!`)
+        alert(`Vous avez terminé la partie en ${minute} minute(s) et ${second} secondes, avec un total de ${mouvement} coups ! \n\nCliquez sur ok pour relancer la partie!`)
         location.reload();
     }
 }
