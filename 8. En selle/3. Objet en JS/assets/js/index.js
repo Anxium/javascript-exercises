@@ -57,17 +57,14 @@ let allObject = () => {
 }
 
 let availableObject = () => {
+    let stock = "";
     for(let i=0;i<shop.length;i++){
-        let stock = "";
-        for(let key in shop[i]) {
-            if(shop[i].available == true) {
-                stock += `\n${shop[i][key]}`;
-            }
-        }
-        if (stock != "") {
-            alert(`Items disponible : ${stock}`);
+        if(shop[i].available == true) {
+            stock += `\n${shop[i].title}`;
         }
     }
+
+    alert(`Items disponible : ${stock}`);
 }
 
 let minObject = () => {
@@ -120,6 +117,6 @@ function character(name, level, life, weaponName, weaponDamage) {
 }
 
 let mainCharacter2 = new character('Justine', 18, 1800, 'sa main', 10);
-let opponentCharacter = new character('Jérémy', 1, 200, 'sa débilité', 1);
+let opponentCharacter = new character('Quentin', 1, 200, 'sa débilité', 1);
 
 // mainCharacter2.attack(opponentCharacter)
