@@ -52,15 +52,13 @@ var reverseWordsInArray = function(array) {
 }
 
 var everyPossiblePair = function(array) {
-    let retour = []
     function pair(tableau) {
         tableau.sort();
-        let tb = [],
-        l = tableau.length;
-        for(let i=0; i<l; i++)
-            for(let j=i+1; j<l; j++)
-                tb.push([tableau[i], tableau[j]]);
-        return tb;
+        let table = [];
+        for(let i=0; i<tableau.length; i++)
+            for(let j=i+1; j<tableau.length; j++)
+                table.push([tableau[i], tableau[j]]);
+        return table;
     }
  
     return pair(array)    
@@ -174,13 +172,24 @@ var convertArrayToObject = function(array) {
 }
 
 var getAllLetters = function(array) {
-    for (let i=0;i<array.length;i++) {
-        for (let j=1;j<array[i].length;j++){
-            array[i][j].split();
+	name = array;   
+    let result = [];
+
+    for (let i = 0; i < name.length; i++){
+        name[i] = name[i].split("").join(""); 
+        if (name[i] != ',') {
+        result.push(name[i]);
+        } 
+    }
+    result.sort();
+
+    for (let i=0; i<result.length; i++){
+        if (result[i] == result[i+1]) {
+            result.splice(i, 1);
         }
     }
 
-    return array
+    return result; 
 }
 
 var swapKeysAndValues = function(object) {
